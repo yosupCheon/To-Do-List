@@ -1,4 +1,4 @@
-<h1>Create To-Do-List desktop application using Electron.</h1>
+<h1>To-Do-List desktop application using Electron.</h1>
 
 <h2>Set up</h2>
     <ul>
