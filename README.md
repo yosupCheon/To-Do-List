@@ -9,9 +9,7 @@
 
 <h2>How to Use</h2>
 on the command-line interface, type this to lunch the app:
-```
-npm start
-```
+<pre><code>npm start</code></pre>
 The executable file will be available when the app is completed
 
 <h2>Functionality</h2>
