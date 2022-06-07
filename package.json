@@ -1,0 +1,22 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "add and delete worklist",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yosupCheon/To-Do-List.git"
+  },
+  "author": "Yosup Cheon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yosupCheon/To-Do-List/issues"
+  },
+  "homepage": "https://github.com/yosupCheon/To-Do-List#readme",
+  "devDependencies": {
+    "electron": "^19.0.3"
+  }
+}
