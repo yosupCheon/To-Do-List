@@ -9,25 +9,18 @@ const addList = (event) => {
     if (item.value !== ''){
         let list = document.querySelector('ol');
         let newItem = document.createElement('li');
-        //newItem.innerHTML = `<input type="button" value = "remove"/><label>${item.value}</label>`;
-        //newItem.innerHTML = `<label>${item.value}</label>`;
-        newItem.innerHTML = `<label>${item.value}</label><input type="checkbox"><input id ="remove" type="submit" value="remove">`;
+        newItem.innerHTML = `<label>${item.value} <i>completed:</i></label><input type="checkbox"><input id ="remove" type="submit" value="remove">`;
         list.appendChild(newItem);
         item.value = '';
     };
 };
 
-// remove button works
-// problems
-// 1. remove button always deletes the first list not the targeted one
 const removeItemFromList = (event) => {
-    //console.log("test\n");
     if (event.target.id == "remove"){
-        console.log(`${event}`);
-        //let parent = document.querySelector('ol');
-        //let child = document.querySelector('li');
-        //parent.removeChild(child);
-        document.querySelector('ol').removeChild(document.querySelector('li'));
+        let parent = document.querySelector('ol');
+        let listItem = event.target.parentNode; // li
+        parent.removeChild(listItem);
+        //event.target.remove();
     }
 };
 
