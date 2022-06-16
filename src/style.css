@@ -17,3 +17,17 @@ form, ol, li{
 ol{
     list-style: none;
 }
+
+label {
+    padding-right: 10px;
+}
+
+i {
+    font-size: 20px;
+    color: blue;
+}
+
+input[type="checkbox"] {
+    margin: 15px 15px 15px 10px;
+    transform : scale(3);
+}
