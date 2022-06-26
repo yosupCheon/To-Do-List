@@ -9,7 +9,11 @@ const addList = (event) => {
     if (item.value !== ''){
         let list = document.querySelector('ol');
         let newItem = document.createElement('li');
-        newItem.innerHTML = `<label>${item.value} <i>completed:</i></label><input type="checkbox"><input id ="remove" type="submit" value="remove">`;
+        //newItem.innerHTML = `<label>${item.value} <i>completed:</i></label><input type="checkbox"><input id ="remove" type="submit" value="remove">`;
+        newItem.innerHTML = `
+        <input type = "time">
+        <label>${item.value} <i>completed:</i></label><input type="checkbox"><input id ="remove" type="submit" value="remove">
+        `;
         list.appendChild(newItem);
         item.value = '';
     };

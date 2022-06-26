@@ -1,5 +1,7 @@
 * {
     background-color:rgb(18, 230, 198);
+    text-align: center;
+    font-size: 30px;
 }
 h1 {
     color: rgb(187, 255, 0);
@@ -8,10 +10,6 @@ h1 {
 
 h1, form, ol, li{
     text-align: center;
-}
-
-form, ol, li{
-    font-size: 30px;
 }
 
 ol{
@@ -23,7 +21,6 @@ label {
 }
 
 i {
-    font-size: 20px;
     color: blue;
 }
 
