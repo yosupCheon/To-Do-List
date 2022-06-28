@@ -12,10 +12,7 @@ const init = () => {
     // this needs to be function
     let fs = require('fs');
     fs.readFile('scheduler.txt', (err, data)=>{
-        if (err) {
-            console.error(err);
-            return;
-            }
+        if (err) {return console.error(err);}
             let arr = data.toString().split("\n");
             for(i in arr) {
                 if (arr[i] !== ''){
@@ -54,6 +51,25 @@ const removeItemFromList = (event) => {
     if (event.target.id == "remove"){
         let parent = document.querySelector('ol');
         let listItem = event.target.parentNode;
+        
+        //remove from the text file as well
+        //  find the word to delete
+        let temp = listItem.getElementsByTagName("label")[0].innerHTML.split('<i>')[0];
+        //temp = temp.split(" ")[0];
+        temp = temp.slice(0, temp.length - 1);
+        console.log(temp);
+        //  delete from the text file but...
+        //  conner case: when list is ends with 2 space at the end
+        let fs = require('fs')
+        fs.readFile('scheduler.txt', 'utf8', (err, data) => {
+            if (err) {return console.log(err);}
+            let result = data.replace(temp, '');
+            fs.writeFile('scheduler.txt', result, (err) => {
+                if (err) {return console.log(err);}
+            });
+        });
+
+
         parent.removeChild(listItem);
     }
 };
