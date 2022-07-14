@@ -9,11 +9,10 @@ const {ipcRenderer} = require('electron');
 let fs = require('fs');
 
 const init = () => {
-    
     document.querySelector('form').addEventListener('submit', addList);
     document.querySelector('ol').addEventListener('click', removeItemFromList);
-    document.querySelector('ol').addEventListener('click', checkTest);
 };
+
 
 const loadList = () => {
     // this adds a saved list from the textfile to the app
@@ -60,7 +59,6 @@ const addList = (event) => {
     };
 };
 
-
 const removeItemFromList = (event) => {
     //event.preventDefault();
     if (event.target.id == "remove"){
@@ -77,10 +75,14 @@ const removeItemFromList = (event) => {
         });
 
         parent.removeChild(listItem);
+    }//if ends
+    else {
+        checkBoxSwitch(event);      
     }
+
 };
 
-const checkTest = (event) => {
+function checkBoxSwitch(event) {
     //event.preventDefault();
     if (event.target.id == "checker"){
 
@@ -95,8 +97,9 @@ const checkTest = (event) => {
                 });
             });
             // this updates current checkbox but not saved on to the text file
-            //event.target.parentNode.getElementsByTagName('input')[0].removeAttribute("unchecked");
-            //event.target.parentNode.getElementsByTagName('input')[0].setAttribute("checked",""); 
+            // it was so importantly necessary since before this it was only once
+            event.target.parentNode.getElementsByTagName('input')[0].removeAttribute("unchecked");
+            event.target.parentNode.getElementsByTagName('input')[0].setAttribute("checked",""); 
         }
         else {
             fs.readFile('scheduler.txt', 'utf8', (err, data) => {
@@ -106,12 +109,14 @@ const checkTest = (event) => {
                     if (err) {return console.log(err);}
                 });
             });
-            //event.target.parentNode.getElementsByTagName('input')[0].removeAttribute("checked");
-            //event.target.parentNode.getElementsByTagName('input')[0].setAttribute("unchecked",""); 
+            event.target.parentNode.getElementsByTagName('input')[0].removeAttribute("checked");
+            event.target.parentNode.getElementsByTagName('input')[0].setAttribute("unchecked",""); 
         } // else ends
     }// outer if ends
     str = '';
 };
+
+function checkBoxSwitchHelper(one, two) {};
 
 init();
 loadList();
