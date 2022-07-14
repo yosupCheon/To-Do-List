@@ -6,7 +6,7 @@ let fs = require('fs');
 // receive data from renderer process -> main process
 // add each list to the "scheduler.txt" file
 ipcMain.on("item-from-renderer",(event, item)=>{
-  item = item.concat('\n');
+  //item = item.concat('\n');
   fs.appendFile('scheduler.txt', item, function (err) {
     if (err) return console.log(err);
   });
@@ -25,7 +25,7 @@ function createWindow () {
     }
   })
   win.loadFile('index.html')
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 }
 
 app.whenReady().then(()=> {

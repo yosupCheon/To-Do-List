@@ -1,12 +1,7 @@
-/* for timer option has been taken out for save and load features
-newItem.innerHTML = `
-    <input type = "time">
-    <label>${item} <i>completed:</i></label><input type="checkbox"><input id ="remove" type="submit" value="remove">
-    `;
-*/
 
 const {ipcRenderer} = require('electron');
 let fs = require('fs');
+let str;
 
 const init = () => {
     document.querySelector('form').addEventListener('submit', addList);
@@ -85,38 +80,28 @@ const removeItemFromList = (event) => {
 function checkBoxSwitch(event) {
     //event.preventDefault();
     if (event.target.id == "checker"){
-
-        let str = event.target.parentNode.innerHTML.split('<li>')[0];          
-
+        str = event.target.parentNode.innerHTML.split('<li>')[0];
         if (event.target.checked == true){      
-            fs.readFile('scheduler.txt', 'utf8', (err, data) => {
-                if (err) {return console.log(err);}
-                let result = data.replace(str, str.replace("unchecked", 'checked'));
-                fs.writeFile('scheduler.txt', result, (err) => {
-                    if (err) {return console.log(err);}
-                });
-            });
-            // this updates current checkbox but not saved on to the text file
-            // it was so importantly necessary since before this it was only once
-            event.target.parentNode.getElementsByTagName('input')[0].removeAttribute("unchecked");
-            event.target.parentNode.getElementsByTagName('input')[0].setAttribute("checked",""); 
+            checkBoxSwitchHelper("unchecked", 'checked');
         }
         else {
-            fs.readFile('scheduler.txt', 'utf8', (err, data) => {
-                if (err) {return console.log(err);}
-                let result = data.replace(str, str.replace("checked","unchecked"));
-                fs.writeFile('scheduler.txt', result, (err) => {
-                    if (err) {return console.log(err);}
-                });
-            });
-            event.target.parentNode.getElementsByTagName('input')[0].removeAttribute("checked");
-            event.target.parentNode.getElementsByTagName('input')[0].setAttribute("unchecked",""); 
-        } // else ends
-    }// outer if ends
-    str = '';
+            checkBoxSwitchHelper("checked","unchecked");
+        } 
+    }
 };
 
-function checkBoxSwitchHelper(one, two) {};
+function checkBoxSwitchHelper(fromTxt, toTxt) {        
+    fs.readFile('scheduler.txt', 'utf8', (err, data) => {
+        if (err) {return console.log(err);}
+        let result = data.replace(str, str.replace(fromTxt, toTxt));
+        fs.writeFile('scheduler.txt', result, (err) => {
+            if (err) {return console.log(err);}
+        });
+    });
+
+    event.target.parentNode.getElementsByTagName('input')[0].removeAttribute(fromTxt);
+    event.target.parentNode.getElementsByTagName('input')[0].setAttribute(toTxt,""); 
+};
 
 init();
 loadList();
