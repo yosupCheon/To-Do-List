@@ -12,23 +12,30 @@ ipcMain.on("item-from-renderer",(event, item)=>{
   });
 })
 
+
 function createWindow () {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    //width: 800,
+    //height: 600,
+    width: 1000,
+    height: 1000,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     }
   })
   win.loadFile('index.html')
-  //win.webContents.openDevTools()
+  win.webContents.openDevTools()
 }
 
 app.whenReady().then(()=> {
   createWindow();
   app.on('activate',()=>{
-    // for macOS
     if (BrowserWindow.getAllWindows().length===0){createWindow();}
   });
 });   
+
+app.on('window-all-closed', () => {
+  //console.log("closed");
+  app.quit()
+})
