@@ -15,8 +15,10 @@ The executable file will be available when the app is completed
 <h2>Functionality</h2>
     <ul>
         <li>Input fields</li>
-        <li>Add/reset item button</li>
+        <li>Add/reset button</li>
         <li>Adds a user's input to the list</li>
+        <li>Save item and its checkbox to the textfile</li>
+        <li>Load item and its checkbox from the textfile</li>
     </ul>
 
-updated: June 7, 2022
+updated: July 14, 2022
