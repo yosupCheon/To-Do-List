@@ -3,8 +3,8 @@ This is To-Do-list desktop application built by Electron open source software.
 
 <h2>Use Case; one will be added</h2>
 Screenshot:
-![alt text](img/first.png)
-![alt text](img/second.png)
+[![firstImg](img/first.png)]
+[![secondImg](img/second.png)]
 
 - video
 
