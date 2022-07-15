@@ -2,16 +2,24 @@
 const {ipcRenderer} = require('electron');
 let fs = require('fs');
 let str;
+let dir;
 
 const init = () => {
-    document.querySelector('form').addEventListener('submit', addList);
-    document.querySelector('ol').addEventListener('click', removeItemFromList);
+    ipcRenderer.send("item-from-renderer", '');
+    ipcRenderer.on("item-from-main",(event, item)=>{
+        dir = item;
+        loadList();
+        document.querySelector('form').addEventListener('submit', addList);
+        document.querySelector('ol').addEventListener('click', removeItemFromList);
+    })
+    //document.querySelector('form').addEventListener('submit', addList);
+    //document.querySelector('ol').addEventListener('click', removeItemFromList);
 };
 
 
 const loadList = () => {
     // this adds a saved list from the textfile to the app
-    fs.readFile('scheduler.txt', (err, data)=>{
+    fs.readFile(dir, (err, data)=>{
         if (err) {return console.error(err);}
             let arr = data.toString().split("\n");
             for(i in arr) {
@@ -42,14 +50,11 @@ const addList = (event) => {
         // update html as <li> in <ol>
         newListItem.innerHTML = newItem;
 
-        // pass to the main processor
-        // save to file by node.js...?
-        //ipcRenderer.send("item-from-renderer", item.value);
-        ipcRenderer.send("item-from-renderer", newItem);
-        list.appendChild(newListItem);
-        
-        //newListItem.className = "hi";
+        fs.appendFile(dir, newItem, function (err) {
+            if (err) return console.log(err);
+        });
 
+        list.appendChild(newListItem);
         item.value = '';
     };
 };
@@ -61,10 +66,10 @@ const removeItemFromList = (event) => {
         let listItem = event.target.parentNode;
         let temp = listItem.innerHTML.split('<li>')[0];
 
-        fs.readFile('scheduler.txt', 'utf8', (err, data) => {
+        fs.readFile(dir, 'utf8', (err, data) => {
             if (err) {return console.log(err);}
             let result = data.replace(temp, '');
-            fs.writeFile('scheduler.txt', result, (err) => {
+            fs.writeFile(dir, result, (err) => {
                 if (err) {return console.log(err);}
             });
         });
@@ -91,10 +96,10 @@ function checkBoxSwitch(event) {
 };
 
 function checkBoxSwitchHelper(fromTxt, toTxt) {        
-    fs.readFile('scheduler.txt', 'utf8', (err, data) => {
+    fs.readFile(dir, 'utf8', (err, data) => {
         if (err) {return console.log(err);}
         let result = data.replace(str, str.replace(fromTxt, toTxt));
-        fs.writeFile('scheduler.txt', result, (err) => {
+        fs.writeFile(dir, result, (err) => {
             if (err) {return console.log(err);}
         });
     });
@@ -103,5 +108,19 @@ function checkBoxSwitchHelper(fromTxt, toTxt) {
     event.target.parentNode.getElementsByTagName('input')[0].setAttribute(toTxt,""); 
 };
 
+//ipcRenderer.send("item-from-renderer", '');
 init();
-loadList();
+//loadList();
+
+/*
+function noName() {
+    ipcRenderer.send("item-from-renderer", '');
+    ipcRenderer.on("item-from-main",(event, item)=>{
+        dir = item;
+        console.log(dir);
+        loadList();
+        init();
+    })
+}
+noName();
+*/
