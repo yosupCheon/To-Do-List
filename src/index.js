@@ -12,8 +12,6 @@ const init = () => {
         document.querySelector('form').addEventListener('submit', addList);
         document.querySelector('ol').addEventListener('click', removeItemFromList);
     })
-    //document.querySelector('form').addEventListener('submit', addList);
-    //document.querySelector('ol').addEventListener('click', removeItemFromList);
 };
 
 
@@ -83,7 +81,6 @@ const removeItemFromList = (event) => {
 };
 
 function checkBoxSwitch(event) {
-    //event.preventDefault();
     if (event.target.id == "checker"){
         str = event.target.parentNode.innerHTML.split('<li>')[0];
         if (event.target.checked == true){      
@@ -108,19 +105,4 @@ function checkBoxSwitchHelper(fromTxt, toTxt) {
     event.target.parentNode.getElementsByTagName('input')[0].setAttribute(toTxt,""); 
 };
 
-//ipcRenderer.send("item-from-renderer", '');
 init();
-//loadList();
-
-/*
-function noName() {
-    ipcRenderer.send("item-from-renderer", '');
-    ipcRenderer.on("item-from-main",(event, item)=>{
-        dir = item;
-        console.log(dir);
-        loadList();
-        init();
-    })
-}
-noName();
-*/
