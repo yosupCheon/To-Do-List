@@ -7,10 +7,12 @@ Screen Shots: <br>
 ![firstImg](img/first.png)
 ![secondImg](img/second.png)
 
-<br>
-Video: <br>
+<br>Video: <br>
 
 [![Video](http://img.youtube.com/vi/n--vG7h6uMM/0.jpg)](https://youtu.be/n--vG7h6uMM)
+<br>
+<a href="https://youtu.be/n--vG7h6uMM">https://youtu.be/n--vG7h6uMM</a>
+<br>
 
 <h2>How to Use</h2>
 <h3>Required Environement:</h3>
