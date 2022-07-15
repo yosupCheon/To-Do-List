@@ -61,4 +61,6 @@ Thumbs.db
 !.gitignore
 !.nvmrc
 !.phpcs.xml.dist
+
+# added for To-Do-List project
 out/
