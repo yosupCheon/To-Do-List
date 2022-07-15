@@ -1,24 +1,31 @@
-<h1>To-Do-List desktop application using Electron</h1>
+<h1>To Do List</h1>
+This is To-Do-list desktop application built by Electron open source software.
 
-<h2>Set up</h2>
-    <ul>
-        <li>For the beginning set-up, follow along the electron quick-start tutorial (excluded preload.js file)</li>
-        <li>node version: v16.15.1</li>
-        <li>npm version: 8.11.0</li>
-    </ul>
+<h2>Use Case; one will be added</h2>
+- gif
+- screenshots
+- video
 
 <h2>How to Use</h2>
-On the command-line interface, type this to lunch the app:
+<h3>Required Environement:</h3>
+Node.js and npm are needed to build/run the program
+To check the availability
+<pre><code>node -v</code></pre>
+<pre><code>npm -v</code></pre>
+node version: v16.15.1 is used in this project
+npm version: 8.11.0 is used in this project
+
+<h3>Set Up:</h3>
+Install the electron package
+<pre><code>npm install --save-dev electron</code></pre>
+Running the app from the terminal
 <pre><code>npm start</code></pre>
-The executable file will be available when the app is completed
 
-<h2>Functionality</h2>
-    <ul>
-        <li>Input fields</li>
-        <li>Add/reset button</li>
-        <li>Adds a user's input to the list</li>
-        <li>Save item and its checkbox to the textfile</li>
-        <li>Load item and its checkbox from the textfile</li>
-    </ul>
+<h3>Packaging and Distribution of App using Electron Forge:</h3>
+Install Electron Forge and Update the package.json file
+<pre><code>npm install --save-dev @electron-forge/cli</code></pre>
+<pre><code>npx electron-forge import</code></pre>
+Create packaged app (it will be located in out/to-do-list-darwin-x64/to-do-list)
+<pre><code>npm run make</code></pre>
 
-updated: July 14, 2022
+updated: July 15, 2022
