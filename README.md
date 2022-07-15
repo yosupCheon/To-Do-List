@@ -10,8 +10,7 @@ Screen Shots: <br>
 <br>
 Video: <br>
 
-[![Video](img/first.png)]]
-(https://www.youtube.com/watch?v=n--vG7h6uMM)
+[![Video](http://img.youtube.com/vi/n--vG7h6uMM/0.jpg)](https://youtu.be/n--vG7h6uMM)
 
 <h2>How to Use</h2>
 <h3>Required Environement:</h3>
