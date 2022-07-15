@@ -6,8 +6,7 @@ Screen Shots: <br>
 
 ![firstImg](img/first.png)
 ![secondImg](img/second.png)
-
-<br>Video: <a href="https://youtu.be/n--vG7h6uMM">https://youtu.be/n--vG7h6uMM</a>
+Video: <a href="https://youtu.be/n--vG7h6uMM">https://youtu.be/n--vG7h6uMM</a>
 <br>
 
 <h2>How to Use</h2>
