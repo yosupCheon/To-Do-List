@@ -1,5 +1,5 @@
 <h1>To Do List</h1>
-This is To-Do-list desktop application built by Electron open source software.
+This is To-Do-list desktop application by Electron open source software.
 
 <h2>Use Case</h2>
 Screen Shots: <br>
