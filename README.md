@@ -14,7 +14,7 @@ To check the availability
 <pre><code>npm -v</code></pre>
 node version: v16.15.1 is used in this project<br>
 npm version: 8.11.0 is used in this project
-<br>
+<br><br>
 <h3>Set Up:</h3>
 Install the electron package
 <pre><code>npm install --save-dev electron</code></pre>
