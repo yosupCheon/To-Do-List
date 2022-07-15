@@ -2,8 +2,10 @@
 This is To-Do-list desktop application built by Electron open source software.
 
 <h2>Use Case; one will be added</h2>
-- gif
-- screenshots
+Screenshot:
+![alt text](img/first.png)
+![alt text](img/second.png)
+
 - video
 
 <h2>How to Use</h2>
